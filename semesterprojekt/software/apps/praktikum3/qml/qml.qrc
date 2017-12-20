@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>IntroPage.qml</file>
+        <file>Main.qml</file>
+        <file>PersonPage.qml</file>
+        <file>MyMenu.qml</file>
+        <file>BasePage.qml</file>
+        <file>hmannheim_1.jpg</file>
+    </qresource>
+</RCC>

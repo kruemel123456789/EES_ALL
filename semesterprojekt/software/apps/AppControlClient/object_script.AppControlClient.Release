@@ -1,0 +1,14 @@
+INPUT(
+./release\qjsonrpcserver.o
+./release\qjsonrpcclient.o
+./release\qdiscoveryservice.o
+./release\main.o
+./release\client.o
+./release\server.o
+./release\qrc_qml.o
+./release\moc_qjsonrpcserver.o
+./release\moc_qjsonrpcclient.o
+./release\moc_qdiscoveryservice.o
+./release\moc_client.o
+./release\moc_server.o
+);

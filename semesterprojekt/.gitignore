@@ -1,0 +1,10 @@
+*build*
+*.user*
+*.dll
+*.so
+*.exe
+*.a
+Makefile*
+release
+debug
+data

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scxml xmlns="http://www.w3.org/2005/07/scxml" version="1.0" binding="early" xmlns:qt="http://www.qt.io/2015/02/scxml-ext" name="AppControlStatemachine" qt:editorversion="4.4.1" initial="wait_for_all_components">
+    <qt:editorinfo initialGeometry="250.67;27.63;-20;-20;40;40"/>
+    <state id="get_orders">
+        <qt:editorinfo scenegeometry="470.46;206.51;368.46;156.51;204;100" geometry="470.46;206.51;-102;-50;204;100"/>
+        <transition type="external" event="use_infos_from_order" target="handle_order"/>
+    </state>
+    <state id="no_glasses">
+        <qt:editorinfo scenegeometry="1025.20;320.25;965.20;270.25;120;100" geometry="1025.20;320.25;-60;-50;120;100"/>
+    </state>
+    <state id="feedback_from_platform_ice">
+        <qt:editorinfo scenegeometry="630.26;429.93;507.76;379.93;245;100" geometry="630.26;429.93;-122.50;-50;245;100"/>
+        <transition type="external" event="received_feedback_platform" target="feedback_from_robot_ice">
+            <qt:editorinfo endTargetFactors="50.99;13.83"/>
+        </transition>
+    </state>
+    <state id="feedback_from_robot_ice">
+        <qt:editorinfo scenegeometry="630.26;548.37;517.76;498.37;225;100" geometry="630.26;548.37;-112.50;-50;225;100"/>
+        <transition type="external" event="received_feedback_robot" target="feedback_from_platform_bar">
+            <qt:editorinfo endTargetFactors="53.58;11.31"/>
+        </transition>
+    </state>
+    <state id="feedback_from_platform_bar">
+        <qt:editorinfo scenegeometry="483.06;666.96;358.56;616.96;249;100" geometry="483.06;666.96;-124.50;-50;249;100"/>
+        <transition type="external" event="received_feedback_platform" target="feedback_from_robot_bar">
+            <qt:editorinfo endTargetFactors="54.88;16.59"/>
+        </transition>
+    </state>
+    <state id="feedback_from_robot_bar">
+        <qt:editorinfo scenegeometry="483.06;810.22;369.56;760.22;227;100" geometry="483.06;810.22;-113.50;-50;227;100"/>
+        <transition type="external" event="received_feedback_robot" target="feedback_from_platform_user"/>
+    </state>
+    <state id="feedback_from_platform_user">
+        <qt:editorinfo scenegeometry="486.46;960.93;358.46;910.93;256;100" geometry="486.46;960.93;-128;-50;256;100"/>
+        <transition type="external" event="received_feedback_platform" target="feedback_from_robot_user"/>
+    </state>
+    <state id="feedback_from_robot_user">
+        <qt:editorinfo scenegeometry="486.46;1092.93;369.46;1042.93;234;100" geometry="486.46;1092.93;-117;-50;234;100"/>
+        <transition type="external" event="received_feedback_robot" target="get_orders">
+            <qt:editorinfo localGeometry="-262.39;0;-262.39;-880.26"/>
+        </transition>
+    </state>
+    <state id="wait_for_all_components">
+        <qt:editorinfo scenegeometry="483.06;95.15;371.06;45.15;224;100" geometry="483.06;95.15;-112;-50;224;100"/>
+        <transition type="external" event="all_connected" target="get_orders">
+            <qt:editorinfo endTargetFactors="54.59;28.84"/>
+        </transition>
+    </state>
+    <state id="handle_order">
+        <qt:editorinfo scenegeometry="470.46;320.25;410.46;270.25;120;100" geometry="470.46;320.25;-60;-50;120;100"/>
+        <transition type="external" event="Platform_no_Ice_Required" target="feedback_from_platform_bar">
+            <qt:editorinfo startTargetFactors="43.96;79.53" endTargetFactors="44.94;8.66"/>
+        </transition>
+        <transition type="external" event="Platform_Ice_Required" target="feedback_from_platform_ice">
+            <qt:editorinfo startTargetFactors="69.68;70.91" endTargetFactors="50.91;11.19"/>
+        </transition>
+        <transition type="external" event="error_no_glases" target="no_glasses">
+            <qt:editorinfo startTargetFactors="75;45.26" endTargetFactors="15.39;53.53"/>
+        </transition>
+    </state>
+</scxml>
